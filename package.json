@@ -14,9 +14,16 @@
     "@emotion/styled": "^11.13.0",
     "@mui/icons-material": "^5.16.7",
     "@mui/material": "^5.16.7",
+    "aos": "^2.3.4",
+    "i18next": "^23.14.0",
+    "i18next-browser-languagedetector": "^8.0.0",
+    "i18next-http-backend": "^2.6.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-toggle-dark-mode": "^1.1.1"
+    "react-i18next": "^15.0.1",
+    "react-toggle-dark-mode": "^1.1.1",
+    "swiper": "^11.1.9",
+    "swiper.js": "^1.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
