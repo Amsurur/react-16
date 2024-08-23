@@ -22,6 +22,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-i18next": "^15.0.1",
+    "react-router-dom": "^6.26.1",
     "react-toggle-dark-mode": "^1.1.1",
     "swiper": "^11.1.9",
     "swiper.js": "^1.0.0"
