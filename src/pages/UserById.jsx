@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 
 const UserById = () => {
   const params = useParams();
-  console.log(params);
 
   const Api = "https://6697657702f3150fb66d72df.mockapi.io/users";
   const [data, setData] = useState({});
