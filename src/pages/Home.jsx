@@ -1,41 +1,15 @@
-import { useForm } from "react-hook-form";
+import { useState } from "react";
+import Comp from "../components/Comp";
 
 const Home = () => {
-  const {
-    register,
-    formState: { errors },
-    handleSubmit,
-  } = useForm({
-    defaultValues: {
-      fullName: "",
-      email: "",
-    },
-  });
-  function add(values) {
-    console.log(values);
-  }
+  const [showHome, setShowHome] = useState(true);
 
   return (
     <div>
-      <form onSubmit={handleSubmit(add)} action="">
-        <input
-          placeholder="fullName"
-          {...register("fullName", {
-            required: "Please enter your fullName",
-            minLength: { message: "minimum 2 letter", value: 2 },
-          })}
-          name="fullName"
-          type="text"
-        />
-        <p>{errors.fullName && errors.fullName.message}</p>
-        <input
-          placeholder="email"
-          {...register("email", { required: "Please enter your email" })}
-          name="email"
-          type="text"
-        />
-        <button type="submit">submit</button>
-      </form>
+      <button onClick={() => setShowHome(!showHome)}>
+        {showHome ? "Скрыть" : "Показать"} компонент Home
+      </button>
+      {showHome && <Comp count2 />}{" "}
     </div>
   );
 };
