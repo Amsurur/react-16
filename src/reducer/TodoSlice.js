@@ -1,44 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { GetTodo } from "../api/TodoApi";
 
 const initialState = {
-  data: [
-    {
-      id: 1,
-      name: "Maruf",
-      phone: "9876543212",
-      status: false,
-    },
-  ],
-  addName: "",
-  addPhone: "",
+  data: [],
+  isLoading: false,
 };
 
 export const counterSlice = createSlice({
   name: "counter",
   initialState,
-  reducers: {
-    handleChangeName: (state, action) => {
-      state.addName = action.payload;
-    },
-    handleChangePhone: (state, action) => {
-      state.addPhone = action.payload;
-    },
-    handSaveAdd: (state) => {
-      let obj = {
-        id: Date.now(),
-        name: state.addName,
-        phone: state.addPhone,
-        status: false,
-      };
-      state.data.push(obj);
-      state.addName = "";
-      state.addPhone = "";
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder.addCase(GetTodo.pending, (state, action) => {
+      state.isLoading = true;
+    });
+    builder.addCase(GetTodo.fulfilled, (state, action) => {
+      state.isLoading = false;
+
+      state.data = action.payload;
+    });
+    builder.addCase(GetTodo.rejected, (state, action) => {
+      console.log(action);
+      state.isLoading = false;
+    });
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { handleChangeName, handleChangePhone, handSaveAdd } =
-  counterSlice.actions;
+export const {} = counterSlice.actions;
 
 export default counterSlice.reducer;
