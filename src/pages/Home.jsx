@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { GetTodo } from "../api/TodoApi";
+import { DeleteTodo, GetTodo } from "../api/TodoApi";
 import { useEffect } from "react";
 import "./home.css";
 const Home = () => {
@@ -9,7 +9,7 @@ const Home = () => {
     dispatch(GetTodo());
   }, []);
   console.log(isLoading);
-  
+
   if (isLoading) {
     return (
       <div className=" absolute right-0 top-0 w-[100%] bg-[black] h-[100svh]  loader"></div>
@@ -18,7 +18,12 @@ const Home = () => {
   return (
     <div className="w-[300px] mx-auto">
       {data?.map((e) => {
-        return <div key={e.id}>{e.name}</div>;
+        return (
+          <div key={e.id}>
+            {e.name}
+            <button onClick={() => dispatch(DeleteTodo(e.id))}>delete</button>
+          </div>
+        );
       })}
     </div>
   );
